@@ -4,7 +4,7 @@ const validator = require("validator");
 
 const blogsSchema = mongoose.Schema(
     {
-        name: {
+        title: {
             type: String,
             trim: true,
             unique: false,
@@ -19,25 +19,15 @@ const blogsSchema = mongoose.Schema(
             required: [true, "Description is required"],
             trim: true,
         },
-        image: {
+        banner: {
             required: true,
             type: String,
             validate: [validator.isURL, "Please provide Product Image URL"],
         },
-        price: {
-            type: Number,
-            required: [true, "Price is required"],
-        },
-        stock: {
-            type: Number,
-            required: [true, "Stock is required"],
-        },
-        sku: {
+        author: {
             type: String,
-            required: [false, "SKU is required"],
+            required: [true, "Author is required"],
         },
-
-
     },
     {
         timestamps: true,
