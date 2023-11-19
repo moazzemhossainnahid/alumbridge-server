@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 
 
-const serviceSchema = mongoose.Schema(
+const jobsSchema = mongoose.Schema(
     {
         name: {
             type: String,
@@ -41,6 +41,6 @@ const serviceSchema = mongoose.Schema(
 );
 
 
-const Services = mongoose.model("services", serviceSchema);
+const Jobs = mongoose.model("jobs", jobsSchema);
 
-module.exports = Services;
+module.exports = Jobs;

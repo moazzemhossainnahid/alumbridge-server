@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 
 
-const partsSchema = mongoose.Schema(
+const blogsSchema = mongoose.Schema(
     {
         name: {
             type: String,
@@ -46,6 +46,6 @@ const partsSchema = mongoose.Schema(
 );
 
 
-const Parts = mongoose.model("parts", partsSchema);
+const Blogs = mongoose.model("blogs", blogsSchema);
 
-module.exports = Parts;
+module.exports = Blogs;
