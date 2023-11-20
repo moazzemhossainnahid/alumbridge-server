@@ -4,6 +4,12 @@ const validator = require("validator");
 
 const jobsSchema = mongoose.Schema(
     {
+        jobTitle: {
+            type: String,
+            trim: true,
+            unique: false,
+            required: [true, "jobTitle is required"],
+        },
         companyName: {
             type: String,
             trim: true,
@@ -21,9 +27,9 @@ const jobsSchema = mongoose.Schema(
             trim: true,
         },
         vacancy: {
-            required: true,
-            type: String,
-            validate: [validator.isURL, "Please provide Vacancy"],
+            type: Number,
+            required: [true, "Vacancy is required"],
+            trim: true,
         },
         skills: {
             type: String,
