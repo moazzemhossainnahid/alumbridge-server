@@ -7,6 +7,9 @@ const router = express.Router();
 // add a part
 router.post("/", verifyToken, blogsController.addABlog);
 
+// update a part
+router.patch("/", verifyToken, blogsController.updateABlog);
+
 // get all parts
 router.get("/", blogsController.getAllBlogs);
 

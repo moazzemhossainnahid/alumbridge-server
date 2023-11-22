@@ -20,6 +20,21 @@ exports.addABlog = async (req, res) => {
         res.json(error);
     }
 }
+// update a Blog
+exports.updateABlog = async (req, res) => {
+    try {
+        const blog = req.body;
+        // console.log(req.body);
+        const blogs = await Blogs.updateOne(blog);
+        res.status(200).json({
+            status: "Successful",
+            message: "Data updated Successfully",
+            data: blogs
+        });
+    } catch (error) {
+        res.json(error);
+    }
+}
 
 
 // get single Blog
