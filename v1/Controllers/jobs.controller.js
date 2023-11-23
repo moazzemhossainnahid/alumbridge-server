@@ -22,6 +22,30 @@ exports.AddAJob = async (req, res) => {
 }
 
 
+
+// update a Job
+exports.updateAJob = async (req, res) => {
+    try {
+        const id = req.params.id;
+        const job = req.body;
+        const filter = { _id: id }
+        const options = { upsert: true };
+        const updateDoc = {
+            $set: job
+        };
+        const jobs = await Jobs.updateOne(filter, updateDoc, options);
+        res.status(200).json({
+            status: "Successful",
+            message: "Data updated Successfully",
+            data: jobs
+        });
+    } catch (error) {
+        res.json(error);
+    }
+}
+
+
+
 // get single job
 exports.getSingleJob = async (req, res) => {
     try {

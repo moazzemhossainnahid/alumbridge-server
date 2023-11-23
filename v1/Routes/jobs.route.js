@@ -6,6 +6,9 @@ const router = express.Router();
 // add a service
 router.post("/", verifyToken, jobsController.AddAJob);
 
+// update a service
+router.patch("/:id", verifyToken, jobsController.updateAJob);
+
 // get all service
 router.get("/", jobsController.getAllJobs);
 

@@ -36,8 +36,8 @@ const userSchema = mongoose.Schema(
         },
         accType: {
             type: String,
-            enum: ["Alumni", "Existing Student"],
-            default: "Alumni",
+            enum: ["Alumni", "Student"],
+            default: "Student",
         },
 
         displayName: {
