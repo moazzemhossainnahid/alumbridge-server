@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/", verifyToken, blogsController.addABlog);
 
 // update a blog
-router.put("/:id", verifyToken, blogsController.updateABlog);
+router.patch("/:id", verifyToken, blogsController.updateABlog);
 
 // add a comment
 router.put("/:id/comments", verifyToken, blogsController.addAComment);
