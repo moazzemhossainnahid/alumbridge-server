@@ -23,9 +23,14 @@ exports.addABlog = async (req, res) => {
 // update a Blog
 exports.updateABlog = async (req, res) => {
     try {
+        const id = req.params.id;
         const blog = req.body;
-        // console.log(req.body);
-        const blogs = await Blogs.updateOne(blog);
+        const filter = { _id: id }
+        const options = { upsert: true };
+        const updateDoc = {
+            $set: blog
+        };
+        const blogs = await Blogs.updateOne(filter, updateDoc, options);
         res.status(200).json({
             status: "Successful",
             message: "Data updated Successfully",
@@ -35,7 +40,6 @@ exports.updateABlog = async (req, res) => {
         res.json(error);
     }
 }
-
 
 // get single Blog
 exports.getSingleBlog = async (req, res) => {
