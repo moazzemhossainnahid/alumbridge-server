@@ -4,19 +4,25 @@ const verifyToken = require("../Middlewares/verifyToken");
 const router = express.Router();
 
 
-// add a part
+// add a blog
 router.post("/", verifyToken, blogsController.addABlog);
 
-// update a part
-router.patch("/:id", verifyToken, blogsController.updateABlog);
+// update a blog
+router.put("/:id", verifyToken, blogsController.updateABlog);
 
-// get all parts
+// add a comment
+router.put("/:id/comments", verifyToken, blogsController.addAComment);
+
+// delete a comment
+router.delete("/:blogId/comments/:commentId", verifyToken, blogsController.deleteAComment);
+
+// get all blogs
 router.get("/", blogsController.getAllBlogs);
 
-// get single part
+// get single blog
 router.get("/:id", verifyToken, blogsController.getSingleBlog);
 
-// delete a part
+// delete a blog
 router.delete("/:id", verifyToken, blogsController.deleteABlog);
 
 

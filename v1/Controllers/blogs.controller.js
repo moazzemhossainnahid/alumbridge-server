@@ -20,6 +20,8 @@ exports.addABlog = async (req, res) => {
         res.json(error);
     }
 }
+
+
 // update a Blog
 exports.updateABlog = async (req, res) => {
     try {
@@ -40,6 +42,71 @@ exports.updateABlog = async (req, res) => {
         res.json(error);
     }
 }
+
+
+// add a Comment
+exports.addAComment = async (req, res) => {
+    const blogId = req.params.id;
+    const newComment = req.body;
+    try {
+        const blog = await Blogs.findById(blogId);
+
+        if (!blog) {
+          return res.status(404).json({ error: 'Blog not found' });
+        }
+    
+        // Update the comments array
+        blog.comments.push(newComment);
+    
+        // Save the updated blog
+        await blog.save();
+    
+        res.status(200).json({
+            status: "Successful",
+            message: "Comment add Successfully",
+            data: blog
+        });
+    } catch (error) {
+        res.json(error);
+    }
+}
+
+
+// Delete a Comment
+exports.deleteAComment = async (req, res) => {
+    const blogId = req.params.blogId;
+    const commentId = req.params.commentId;
+  
+    try {
+      const blog = await Blogs.findById(blogId);
+  
+      if (!blog) {
+        return res.status(404).json({ error: 'Blog not found' });
+      }
+  
+      // Find the index of the comment with the given commentId
+      const commentIndex = blog.comments.findIndex(comment => comment._id.toString() === commentId);
+  
+      if (commentIndex === -1) {
+        return res.status(404).json({ error: 'Comment not found' });
+      }
+  
+      // Remove the comment from the array
+      blog.comments.splice(commentIndex, 1);
+  
+      // Save the updated blog
+      await blog.save();
+  
+      res.status(200).json({
+        status: 'Successful',
+        message: 'Comment deleted Successfully',
+        data: blog,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  };
 
 // get single Blog
 exports.getSingleBlog = async (req, res) => {

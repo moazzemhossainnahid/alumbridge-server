@@ -38,6 +38,10 @@ const blogsSchema = mongoose.Schema(
                     type: String,
                     required: false,
                 },
+                email: {
+                    type: String,
+                    required: false,
+                },
                 comment: {
                     type: String,
                     required: false,
