@@ -13,16 +13,20 @@ const socializationsSchema = mongoose.Schema(
         category: {
             type: String,
             trim: true,
+            required: [true, "Category is required"],
+        },
+        quantity: {
+            type: Number,
+            required: [true, "Quantity is required"],
         },
         description: {
             type: String,
             required: [true, "Description is required"],
             trim: true,
         },
-        banner: {
-            required: false,
+        location: {
             type: String,
-            validate: [validator.isURL, "Please provide Product Image URL"],
+            required: [true, "Location is required"],
         },
         comments: [
             {
