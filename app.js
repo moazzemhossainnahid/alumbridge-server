@@ -18,6 +18,7 @@ const usersRoute = require('./v1/Routes/users.route');
 const jobsRoute = require('./v1/Routes/jobs.route');
 const jobApplicationsRoute = require('./v1/Routes/jobApplications.route');
 const blogsRoute = require('./v1/Routes/blogs.route');
+const socializationsRoute = require('./v1/Routes/socializations.route');
 
 
 
@@ -29,6 +30,7 @@ app.use('/api/v1/users', usersRoute);
 app.use('/api/v1/jobs', jobsRoute);
 app.use('/api/v1/jobapplications', jobApplicationsRoute);
 app.use('/api/v1/blogs', blogsRoute);
+app.use('/api/v1/socializations', socializationsRoute);
 
 
 

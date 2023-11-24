@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const validator = require("validator");
 
 
-const blogsSchema = mongoose.Schema(
+const socializationsSchema = mongoose.Schema(
     {
         title: {
             type: String,
@@ -20,13 +20,9 @@ const blogsSchema = mongoose.Schema(
             trim: true,
         },
         banner: {
-            required: true,
+            required: false,
             type: String,
             validate: [validator.isURL, "Please provide Product Image URL"],
-        },
-        author: {
-            type: String,
-            required: [true, "Author is required"],
         },
         comments: [
             {
@@ -56,6 +52,6 @@ const blogsSchema = mongoose.Schema(
 );
 
 
-const Blogs = mongoose.model("blogs", blogsSchema);
+const Socializations = mongoose.model("socializations", socializationsSchema);
 
-module.exports = Blogs;
+module.exports = Socializations;
