@@ -14,7 +14,7 @@ router.patch("/:id", verifyToken, socializationsController.updateAPost);
 router.put("/:id/comments", verifyToken, socializationsController.addAComment);
 
 // delete a comment
-router.delete("/:blogId/comments/:commentId", verifyToken, socializationsController.deleteAComment);
+router.delete("/:postId/comments/:commentId", verifyToken, socializationsController.deleteAComment);
 
 // get all posts
 router.get("/", socializationsController.getAllPosts);
