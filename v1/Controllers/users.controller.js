@@ -91,9 +91,8 @@ exports.getAdmin = async (req, res) => {
         const query = { email: email }
         const adminUser = await Users.findOne(query);
         // console.log(adminUser);
-        const isAdmin = adminUser.role === "admin";
-        const isSPAdmin = adminUser.role === "superadmin"
-        res.send({ role: isAdmin || isSPAdmin })
+        const isAdmin = adminUser.role === "alumni";
+        res.send({ role: isAdmin })
     } catch (err) {
         res.status(404).json(err);
     }

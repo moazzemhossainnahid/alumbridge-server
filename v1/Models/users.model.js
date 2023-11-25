@@ -31,15 +31,9 @@ const userSchema = mongoose.Schema(
         },
         role: {
             type: String,
-            enum: ["superadmin", "admin", "user"],
-            default: "user",
+            enum: ["alumni", "student"],
+            default: "student",
         },
-        accType: {
-            type: String,
-            enum: ["Alumni", "Student"],
-            default: "Student",
-        },
-
         displayName: {
             type: String,
             trim: true,

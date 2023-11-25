@@ -16,7 +16,7 @@ router.get("/", verifyToken, userController.getAllUsers);
 router.delete("/:id", verifyToken, userController.deleteUser);
 
 // get an Admin
-router.get("/isAdmin/:email", verifyToken, userController.getAdmin);
+router.get("/isAlumni/:email", verifyToken, userController.getAdmin);
 
 // make an Admin
 router.put("/admin/:email", verifyToken, userController.makeAdmin);
