@@ -29,6 +29,30 @@ const jobApplicationSchema = mongoose.Schema(
             required: [true, "message is required"],
             trim: true,
         },
+        email: {
+            type: String,
+            required: [true, "Email is required"],
+        },
+        jobTitle: {
+            type: String,
+            trim: true,
+            unique: false,
+            required: [true, "jobTitle is required"],
+        },
+        jobPosition: {
+            type: String,
+            required: [true, "jobPosition is required"],
+        },
+        jobEmail: {
+            type: String,
+            required: [true, "jobEmail is required"],
+        },
+        companyName: {
+            type: String,
+            trim: true,
+            unique: false,
+            required: [true, "companyName is required"],
+        },
     },
     {
         timestamps: true,

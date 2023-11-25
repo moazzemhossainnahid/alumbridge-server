@@ -28,6 +28,10 @@ const blogsSchema = mongoose.Schema(
             type: String,
             required: [true, "Author is required"],
         },
+        email: {
+            type: String,
+            required: [true, "Email is required"],
+        },
         comments: [
             {
                 photoURL: {

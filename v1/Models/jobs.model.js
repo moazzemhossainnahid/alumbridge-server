@@ -36,7 +36,10 @@ const jobsSchema = mongoose.Schema(
             trim: true,
             required: [false, "skills is not required"],
         },
-
+        email: {
+            type: String,
+            required: [true, "Email is required"],
+        },
     },
     {
         timestamps: true,
